@@ -4,17 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-<<<<<<< aa5b27509db32442ec58fe527112ec8c7a27acf9
-    "start": "cross-env NODE_ENV=production node index.js",
-    "watch": "cross-env NODE_ENV=development node_modules/.bin/nodemon index.js",
-    "test": "cross-env NODE_ENV=test node_modules/.bin/jest --verbose",
-    "lint": "node_modules/.bin/eslint ."
-=======
     "start": "node index.js",
     "watch": "node_modules/.bin/nodemon index.js",
     "lint": "node_modules/.bin/eslint .",
     "test": "jest --verbose"
->>>>>>> pusku
   },
   "author": "Matti Luukkainen",
   "license": "MIT",
@@ -23,25 +16,14 @@
     "cors": "^2.8.4",
     "dotenv": "^4.0.0",
     "express": "^4.16.2",
-<<<<<<< aa5b27509db32442ec58fe527112ec8c7a27acf9
-    "jsonwebtoken": "^8.1.1",
-    "mongoose": "^5.0.1"
-=======
     "mongoose": "^5.0.6"
->>>>>>> pusku
   },
   "devDependencies": {
     "babel-eslint": "^8.2.1",
     "cross-env": "^5.1.3",
-<<<<<<< aa5b27509db32442ec58fe527112ec8c7a27acf9
-    "eslint": "^4.16.0",
-    "jest": "^22.1.4",
-    "nodemon": "^1.14.11",
-=======
     "eslint": "^4.17.0",
     "jest": "^22.3.0",
     "nodemon": "^1.15.0",
->>>>>>> pusku
     "supertest": "^3.0.0"
   }
 }

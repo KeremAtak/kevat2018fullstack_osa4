@@ -5,14 +5,6 @@ const bodyParser = require('body-parser')
 const cors = require('cors')
 const mongoose = require('mongoose')
 const middleware = require('./utils/middleware')
-<<<<<<< aa5b27509db32442ec58fe527112ec8c7a27acf9
-const notesRouter = require('./controllers/notes')
-const usersRouter = require('./controllers/users')
-const loginRouter = require('./controllers/login')
-const config = require('./utils/config')
-
-mongoose.connect(config.mongoUrl)
-=======
 const blogsRouter = require('./controllers/blogs')
 const config = require('./utils/config')
 
@@ -29,7 +21,6 @@ mongoose
     console.log(err)
   })
 
->>>>>>> pusku
 mongoose.Promise = global.Promise
 
 app.use(cors())
@@ -37,14 +28,7 @@ app.use(bodyParser.json())
 app.use(express.static('build'))
 app.use(middleware.logger)
 
-<<<<<<< aa5b27509db32442ec58fe527112ec8c7a27acf9
-
-app.use('/api/login', loginRouter)
-app.use('/api/users', usersRouter)
-app.use('/api/notes', notesRouter)
-=======
 app.use('/api/blogs', blogsRouter)
->>>>>>> pusku
 
 app.use(middleware.error)
 
