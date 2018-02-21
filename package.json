@@ -4,10 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
-    "watch": "node_modules/.bin/nodemon index.js",
-    "lint": "node_modules/.bin/eslint .",
-    "test": "jest --verbose"
+    "start": "NODE_ENV=production node index.js",
+    "watch": "NODE_ENV=development nodemon index.js",
+    "test": "NODE_ENV=test jest --verbose",
+    "lint": "eslint ."
   },
   "author": "Matti Luukkainen",
   "license": "MIT",

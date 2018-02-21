@@ -1,35 +1,76 @@
-const Note = require('../models/note')
-const User = require('../models/user')
+const Blog = require('../models/blog')
 
-const initialNotes = [
+const initialBlogs = [
+    
   {
-    content: 'HTML on helppoa',
-    important: false
+    _id: '41224d776a326fb40f000001',
+    title: 'Go To Statement Considered Harmful',
+    author: 'Edsger W. Dijkstra',
+    url: 'http://www.u.arizona.edu/~rubinson/copyright_violations/Go_To_Considered_Harmful.html',
+    likes: 5,
+    __v: 0
   },
   {
-    content: 'HTTP-protokollan tärkeimmät metodit ovat GET ja POST',
-    important: true
+    _id: '41224d776a326fb40f000002',
+    title: 'Otsikko 1',
+    author: 'Matti Meikäläinen',
+    url: 'http://kuvaton.com',
+    likes: 13,
+    __v: 0
+  },
+  {
+    _id: '41224d776a326fb40f000003',
+    title: 'Otsikko 2',
+    author: 'Maija Meikäläinen',
+    url: 'http://www.u.arizona.edu/~rubinson/copyright_violations/Go_To_Considered_Harmful.html',
+    likes: 2,
+    __v: 0
+  },
+  {
+    _id: '41224d776a326fb40f000004',
+    title: 'Otsikko 3',
+    author: 'Maija Meikäläinen',
+    url: 'http://www.u.arizona.edu/~rubinson/copyright_violations/Go_To_Considered_Harmful.html',
+    likes: 3,
+    __v: 0
+  },
+  {
+    _id: '41224d776a326fb40f000005',
+    title: 'Otsikko 4',
+    author: 'Maija Meikäläinen',
+    url: 'http://www.u.arizona.edu/~rubinson/copyright_violations/Go_To_Considered_Harmful.html',
+    likes: 4,
+    __v: 0
   }
 ]
 
-const nonExistingId = async () => {
-  const note = new Note()
-  await note.save()
-  await note.remove()
+const listWithOneBlog = [
+  {
+    _id: '41224d776a326fb40f000001',
+    title: 'Go To Statement Considered Harmful',
+    author: 'Edsger W. Dijkstra',
+    url: 'http://www.u.arizona.edu/~rubinson/copyright_violations/Go_To_Considered_Harmful.html',
+    likes: 5,
+    __v: 0
+  }
+]
 
-  return note._id.toString()
+const formatBlog = (blog) => {
+  return {
+    id: blog._id,
+    title: blog.title,
+    author: blog.author,
+    url: blog.url,
+    likes: blog.likes
+  }
 }
 
-const notesInDb = async () => {
-  const notes = await Note.find({})
-  return notes.map(Note.format)
+const blogsInDb = async () => {
+  const blogs = await Blog.find({})
+  return blogs.map(formatBlog)
 }
 
-const usersInDb = async () => {
-  const users = await User.find({})
-  return users
-}
 
 module.exports = {
-  initialNotes, nonExistingId, notesInDb, usersInDb
+  initialBlogs, listWithOneBlog, formatBlog, blogsInDb
 }

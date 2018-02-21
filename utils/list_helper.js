@@ -1,3 +1,5 @@
+const Blog = require('../models/blog')
+
 const dummy = (blogs) => {
   return 1;
 }
@@ -26,7 +28,6 @@ const mostBlogs = (blogs) => {
       Object.assign(objects, object)
     }
   }
-  console.log(objects)
   return 1;
 }
 
