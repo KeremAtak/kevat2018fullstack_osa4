@@ -18,22 +18,9 @@ const favouriteBlog = (blogs) => {
   return favourite === 0 ? 0 : favourite
 }
 
-const mostBlogs = (blogs) => {
-  var objects = {}
-  for (i = 0; i < blogs.length; i++) {
-    if (blogs[i].author in objects) {
-
-    } else {
-      var object = {author: blogs[i].author, blogs: 1}
-      Object.assign(objects, object)
-    }
-  }
-  return 1;
-}
 
 module.exports = {
   dummy,
   totalLikes,
-  favouriteBlog,
-  mostBlogs
+  favouriteBlog
 }
