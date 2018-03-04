@@ -24,21 +24,22 @@ blogsRouter.delete('/:id', async(request, response) => {
 
   try {
     const decodedToken = jwt.verify(request.token, process.env.SECRET)
-    console.log(decodedToken)
+    const blog = await Blog.findById(request.params.id)
+    
     if (!decodedToken.id) {
       return response.status(401).json({ error : 'token missing or invalid'})
     }
 
     const user = await User.findById(decodedToken.id)
-    const blog = await Blog.findById(request.params.id)
-    console.log(blog)
-    console.log(user.id.toString())
 
-    if (blog.user.toString() !== user.id.toString()) {
-      return response.status(401).json({ error : 'unauthorized action'})
+    if (blog.user === null) {
+      await Blog.findByIdAndRemove(request.params.id)
+    } else {
+      if (blog.user.toString() !== user.id.toString()) {
+        return response.status(401).json({ error : 'unauthorized action'})
+      }
+      await Blog.findByIdAndRemove(request.params.id)
     }
-
-    await Blog.findByIdAndRemove(request.params.id)
     response.status(204).end()
   } catch (exception) {
     console.log(exception)
